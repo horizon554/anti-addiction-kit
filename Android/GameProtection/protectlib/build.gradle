@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.2"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api files('libs/localbroadcast.jar')
+}
+task jarAntiAddiction(type: Jar, dependsOn: ['build']) {
+    archiveName = 'libAAK.jar'
+    from('build/intermediates/classes/release')
+    destinationDir = file('build/libs')
+    exclude('com/antiaddiction/sdk/BuildConfig.class')
+    exclude('com/antiaddiction/sdk/BuildConfig\$*.class')
+    exclude('**/R.class')
+    exclude('**/R\$*.class')
+    include('com/antiaddiction/sdk/*.class')
+    include('com/antiaddiction/sdk/dao/*.class')
+    include('com/antiaddiction/sdk/entity/*.class')
+    include('com/antiaddiction/sdk/service/*.class')
+    include('com/antiaddiction/sdk/utils/*.class')
+    include('com/antiaddiction/sdk/view/*.class')
+
+}
