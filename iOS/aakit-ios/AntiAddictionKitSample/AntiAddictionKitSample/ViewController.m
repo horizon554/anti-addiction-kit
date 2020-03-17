@@ -153,7 +153,7 @@ static NSString *const onlineTimeNotificationName = @"NSNotification.Name.totalO
         @[@"已支付（单位分）购买成功后调用", @"paySuccess"],
         @[@"检查能否聊天", @"gameCheckChatLimit"],
         @[@"打开实名登记\n(登录后可用)", @"openRealName"],
-        @[@"生成证件号，6小时有效（已复制）", @"generateIDCode"],
+//        @[@"生成证件号，6小时有效（已复制）", @"generateIDCode"],
         @[@"杀掉应用", @"killApp"]
     ];
 }

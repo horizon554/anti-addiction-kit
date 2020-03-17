@@ -14,7 +14,7 @@ func Log(_ text: String) {
 /// - Parameter text: log
 func DebugLog(_ text: String) {
     #if DEBUG
-    print("*** \(text) ***")
+//    print("*** \(text) ***")
     #endif
 }
 
