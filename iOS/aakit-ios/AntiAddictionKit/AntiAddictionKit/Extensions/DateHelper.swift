@@ -81,11 +81,15 @@ extension DateHelper {
     
     /// 是否节假日
     class func isHoliday(_ date: Date) -> Bool {
+        
+        // 审核时，周末!=节假日
         // 是否周末
-        if date.compare(.isWeekend) {
-            return true
-        }
+//        if date.compare(.isWeekend) {
+//            return true
+//        }
+        
         // 是否节日
+        // 目前只能确定 2020 年法定节假日，之后时间需及时更新
         let yyyy = date.toString(format: .isoYear)
         let MMdd = date.toString(format: .custom("MMdd"))
         let holiday2020: [String] = ["0101", //元旦1天
